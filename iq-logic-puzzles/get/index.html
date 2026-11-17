@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get IQ Logic Puzzles</title>
+  <meta name="description" content="IQ Logic Puzzles by BvB Interactive: IQ-style puzzle practice with a new Daily Challenge every day. Free on Android.">
+  <link rel="icon" href="../icon.png">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .get { text-align: center; padding-top: 24px; }
+    .get .icon { width: 112px; height: 112px; border-radius: 26px; }
+    .get h1 { margin-top: 16px; }
+    .get .pitch { margin: 0 auto 8px; color: var(--muted); }
+    /* Badge: 478 x 142 artwork shown at 60 px tall, with at least a quarter
+       of its height clear on every side (Google's badge rules). */
+    .badge { display: inline-block; margin: 24px 0 8px; padding: 15px; }
+    .badge img { display: block; height: 60px; width: auto; }
+    .soon { margin: 0 auto; color: var(--muted); font-size: 15px; }
+    .ios .soon { order: -1; color: var(--fg); font-weight: 600; }
+    .stores { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="site">
+      <img src="../icon.png" alt="">
+      <div>
+        <div class="brand"><a href="../../">BvB Interactive</a></div>
+        <div class="name">IQ Logic Puzzles</div>
+      </div>
+    </header>
+
+    <section class="get">
+      <img class="icon" src="../icon.png" alt="IQ Logic Puzzles app icon">
+      <h1>IQ Logic Puzzles</h1>
+      <p class="pitch">IQ-style practice: patterns, numbers, logic, words, spatial and memory puzzles, with a new Daily Challenge every day.</p>
+
+      <div class="stores" id="stores">
+        <a class="badge" id="play" href="https://play.google.com/store/apps/details?id=com.bvbinteractive.iqlogicpuzzles&amp;utm_source=site&amp;utm_medium=social&amp;utm_campaign=bio">
+          <img src="../../google-play-badge.png" alt="Get it on Google Play" width="202" height="60">
+        </a>
+        <p class="soon">Free on Android. Coming soon to the App Store.</p>
+      </div>
+    </section>
+
+    <footer>
+      IQ Logic Puzzles by <a href="../../">BvB Interactive</a> · <a href="../">Support</a> · <a href="../privacy.html">Privacy policy</a> · <a href="../terms.html">Terms of service</a>
+      <address class="company">
+        BvB Interactive · Van Bylandtstraat 140 A, 2562 GE 's-Gravenhage (The Hague), the Netherlands<br>
+        KvK (Chamber of Commerce) 93785321 · VAT NL005042986B81 · <a href="mailto:bvb.interactive@gmail.com">bvb.interactive@gmail.com</a><br>
+        Google Play and the Google Play logo are trademarks of Google LLC.
+      </address>
+    </footer>
+  </main>
+  <script>
+    // Pass the bio link's source on to Play (…/get/?utm_source=instagram),
+    // so Play Console counts the install under that platform. Nothing is
+    // stored or sent anywhere else.
+    (function () {
+      var src = new URLSearchParams(location.search).get('utm_source');
+      if (src && /^[a-z0-9_-]{1,30}$/i.test(src)) {
+        var play = document.getElementById('play');
+        play.href = play.href.replace('utm_source=site', 'utm_source=' + src.toLowerCase());
+      }
+      var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (ios) document.getElementById('stores').classList.add('ios');
+    })();
+  </script>
+</body>
+</html>
